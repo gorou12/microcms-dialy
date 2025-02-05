@@ -26,7 +26,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
-        <footer>&copy; 2025 gorou12 All rights reserved.</footer>
+        <footer>&copy; 2025 gorou12 All rights reserved.<br />
+        This site is powered by <a href="https://www.pokete.com/">ぽけ手帳</a></footer>
       </body>
     </html>
   );
