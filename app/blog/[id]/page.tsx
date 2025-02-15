@@ -7,7 +7,7 @@ type Props = {
 	title: string;
 	body: string;
 	publishedAt: string;
-	category: {name: string};
+	tags: {name: string};
 };
 
 async function getBlogPost(id:string): Promise<Props> {
@@ -24,12 +24,12 @@ export default async function BlogPostPage({params}: {params: Promise<{id: strin
 	const formattedDate = dayjs(post.publishedAt).format('YY.MM.DD');
 
 	return (
-		<main className={styles.main}>
+		<article className={styles.main}>
 			<h1 className={styles.title}>{post.title}</h1>
 			<div className={styles.date}>{formattedDate}</div>
-			<div className={styles.category}>カテゴリー：{post.category && post.category.name}</div>
+			<div className={styles.tags}>カテゴリー：{post.tags && post.tags.name}</div>
 			<div className={styles.post} dangerouslySetInnerHTML={{__html: post.body}} />
-		</main>
+		</article>
 	);
 }
 

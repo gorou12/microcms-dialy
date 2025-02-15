@@ -22,7 +22,7 @@ export default async function Home() {
   
   return (
     <main>
-      <h1>ブログ記事一覧</h1>
+      <h1 className="text-3xl font-bold underline">ブログ記事一覧</h1>
       <ul>
         {posts.map((post)=>(
           <li key={post.id}>
