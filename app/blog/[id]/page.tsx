@@ -34,8 +34,9 @@ export default async function BlogPostPage({params}: {params: Promise<{id: strin
 	);
 }
 
-export async function generateMetadata({params}: {params: {id : string}}) {
-	const post = await getBlogPost(params.id);
+export async function generateMetadata({params}: {params: Promise<{id : string}>}) {
+	const {id} = await params;
+	const post = await getBlogPost(id);
 	return {
 		title: `${post.title} | ${SITE_NAME}`,
 	}
