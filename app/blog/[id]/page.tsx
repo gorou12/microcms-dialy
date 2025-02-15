@@ -1,6 +1,7 @@
 import { client } from "@/libs/microcms";
 import styles from './page.module.css';
 import dayjs from "dayjs";
+import { SITE_NAME } from "@/app/config/constants";
 
 type Props = {
 	id: string;
@@ -31,6 +32,13 @@ export default async function BlogPostPage({params}: {params: Promise<{id: strin
 			<div className={styles.post} dangerouslySetInnerHTML={{__html: post.body}} />
 		</article>
 	);
+}
+
+export async function generateMetadata({params}: {params: {id : string}}) {
+	const post = await getBlogPost(params.id);
+	return {
+		title: `${post.title} | ${SITE_NAME}`,
+	}
 }
 
 export async function generateStaticParams() {
